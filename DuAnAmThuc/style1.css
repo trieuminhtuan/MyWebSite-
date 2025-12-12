@@ -1,0 +1,228 @@
+/* --- 1. CÀI ĐẶT CHUNG & BIẾN MÀU SẮC --- */
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Roboto:wght@400;500&display=swap');
+:root {
+    --primary-color: #b71c1c; /* Đỏ đậm truyền thống */
+
+    --accent-color: #fbc02d;  /* Vàng hoàng gia */
+    --text-dark: #333333;
+    --text-light: #666666;
+    --bg-light: #fdfbf7;      /* Màu kem nhẹ */
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+    
+    /* Sticky Footer Setup */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1; /* Đẩy footer xuống đáy */
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* --- 2. HEADER --- */
+header {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-family: 'Merriweather', serif;
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.MainNav ul {
+    display: flex;
+    gap: 25px;
+}
+
+.MainNav a {
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.MainNav a:hover {
+    color: var(--primary-color);
+}
+
+.menu-toggle { display: none; } /* Ẩn nút menu trên PC */
+
+/* --- 3. HERO SECTION (Banner) --- */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2070&auto=format&fit=crop'); /* Ảnh nền demo */
+    background-size: cover;
+    background-position: center;
+    color: var(--white);
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+/* Grid cho thẻ bài viết trong Hero */
+.hero-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- 4. THẺ CARD (Dùng chung) --- */
+.card, .food {
+    background: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+}
+
+.card:hover, .food:hover {
+    transform: translateY(-5px); /* Hiệu ứng nổi lên khi di chuột */
+}
+
+.card img, .food img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card p, .food h3, .food p {
+    padding: 15px;
+    text-align: center;
+}
+
+.food h3 { color: var(--primary-color); }
+
+/* --- 5. SECTION MÓN ĂN & LỊCH SỬ --- */
+.monan, .History {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.monan h2, .History h2 {
+    text-align: center;
+    font-family: 'Merriweather', serif;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    font-size: 2rem;
+    position: relative;
+}
+
+/* Gạch chân trang trí dưới tiêu đề */
+.monan h2::after, .History h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-color);
+    margin: 10px auto 0;
+}
+
+.food-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.nut {
+    display: block;
+    width: 80%;
+    margin: 0 auto 20px;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.nut:hover {
+    background-color: #8e1515;
+}
+
+/* Timeline cho lịch sử */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.content {
+    flex: 1;
+    background: #fff;
+    padding: 20px;
+    border-left: 4px solid var(--accent-color);
+    box-shadow: var(--shadow);
+}
+
+/* --- 6. FOOTER --- */
+footer {
+    background-color: #222;
+    color: #ddd;
+    padding: 40px 20px 10px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.footer-content h4 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+.copyright {
+    text-align: center;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+    font-size: 0.9rem;
+}
